@@ -15,7 +15,7 @@ function setup() {
   var button = createButton('Play');
   button.mouseClicked(play);
 
-  var buttonNumber = createButton(number);
+  var buttonNumber = createButton(my_number);
   buttonNumber.mouseClicked(numberPiuUno);
 
 
@@ -90,7 +90,7 @@ function play(){
   var x_rect = random(0,width);
   var y_rect = random(0,height);
 
-  fill('orange');
+  fill('red');
   rect(x_rect, y_rect, 30, 30);
 
   var sendData = {
