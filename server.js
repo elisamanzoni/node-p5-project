@@ -51,4 +51,13 @@ function newConnection(socket){
     socket.broadcast.emit('rectBroadcast', receiveData);
   }
 
+  socket.on('number', numberMessage);
+  //creare funzione mouseMessage
+  function numberMessage(receiveData){
+    console.log(receiveData);
+
+  //inviare dal server le informazioni a tutti gli altri clients ma non ha chi l'ha creato
+    socket.broadcast.emit('rectBroadcast', receiveData);
+  }
+
 }

@@ -1,15 +1,21 @@
+
+
 function preload(){
   // put preload code here
 }
 
 var socket;
+var number = 0;
 
 function setup() {
-  createCanvas(windowWidth,windowHeight);
+  createCanvas(500,500);
   background('aquamarine');
 
   var button = createButton('Play');
   button.mouseClicked(play);
+
+  var buttonNumber = createButton(number);
+  buttonNumber.mouseClicked(numberPiuUno);
 
 
 //load the socket.io library
@@ -30,6 +36,14 @@ function setup() {
         fill('yellow');
         rect(receiveData.x, receiveData.y, 30, 30);
       }
+
+      //ogni volta che ricevi informazioni da mouseBroadcast fai qualcosa
+        socket.on('numberBroadcast', new_number);
+      //descrivo la funzione, cosa deve fare
+        function new_number(receiveData){
+          number ++;
+          console.log('giocatori online: ' + number);
+        }
 
 
 
@@ -65,8 +79,8 @@ function mouseDragged(){
 function play(){
   console.log('play');
 
-  var x_rect = random(0,windowWidth);
-  var y_rect = random(0,windowHeight)
+  var x_rect = random(0,width);
+  var y_rect = random(0,height);
 
   fill('blue');
   rect(x_rect, y_rect, 30, 30);
@@ -78,5 +92,18 @@ function play(){
 
   //inviare informazioni
   socket.emit('rect', sendData);
+
+}
+
+function numberPiuUno(){
+  number ++;
+  console.log('you are the number ' + number);
+
+  var sendData = {
+    number:number
+  }
+
+  //inviare informazioni
+  socket.emit('number', sendData);
 
 }
