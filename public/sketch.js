@@ -5,8 +5,11 @@ function preload(){
 var socket;
 
 function setup() {
-    background('aquamarine');
   createCanvas(windowWidth,windowHeight);
+  background('aquamarine');
+
+  var button = createButton('Play');
+  button.mouseClicked(play);
 
 
 //load the socket.io library
@@ -48,5 +51,13 @@ function mouseDragged(){
     socket.emit('mouse', sendData);
 
 
+
+}
+
+function play(){
+  console.log('play');
+
+  fill('red');
+  rect(random(0,windowWidth), random(0,windowHeight), 30, 30);
 
 }
