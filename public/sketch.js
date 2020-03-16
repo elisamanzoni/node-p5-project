@@ -51,6 +51,7 @@ function setup() {
         //descrivo la funzione, cosa deve fare
           function numeroGiocatori(receiveData){
             my_number ++;
+            console.log('giocatori online: ' + players);
           }
 
 
@@ -90,7 +91,7 @@ function play(){
   var x_rect = random(0,width);
   var y_rect = random(0,height);
 
-  fill('red');
+  fill('blue');
   rect(x_rect, y_rect, 30, 30);
 
   var sendData = {
