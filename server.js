@@ -28,15 +28,17 @@ var io = socket(server);
 //la nuova connessione è il cliente, ciè gli altri sketch
 io.on('connection', newConnection);
 
+var connections = 0;
+
 function newConnection(socket){
   console.log(socket.id);
+  connections ++;
 
   //riceve informazioni da sketch che si chiama 'mouse'
   socket.on('mouse', mouseMessage);
   //creare funzione mouseMessage
   function mouseMessage(receiveData){
     console.log(receiveData);
-
   //inviare dal server le informazioni a tutti gli altri clients ma non ha chi l'ha creato
     socket.broadcast.emit('mouseBroadcast', receiveData);
   }
@@ -49,4 +51,6 @@ function newConnection(socket){
   //inviare dal server le informazioni a tutti gli altri clients ma non ha chi l'ha creato
     socket.broadcast.emit('rectBroadcast', receiveData);
   }
+
+   localStorage.setItem("storageConnections", connections);
 }

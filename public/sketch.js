@@ -38,7 +38,8 @@ function setup() {
 }
 
 function draw() {
-
+var players = localStorage.getItem("storageConnections");
+console.log(players);
 
 
   // put drawing code here
