@@ -42,8 +42,8 @@ function setup() {
         socket.on('aumentaIlGiocarore', aumentaIlGiocarore);
       //descrivo la funzione, cosa deve fare
         function aumentaIlGiocarore(receiveData){
-          players ++;
           console.log('giocatori online (mittente): ' + players);
+          console.log('you are the number ' + my_number);
         }
 
         //ogni volta che ricevi informazioni da mouseBroadcast fai qualcosa
@@ -54,6 +54,8 @@ function setup() {
             console.log('dovrebbe arrivare a tutti tranne il mittente');
             players ++;
             console.log('giocatori online (tutti): ' + players);
+
+            console.log('you are the number ' + my_number);
           }
 
 
@@ -110,7 +112,6 @@ function numberPiuUno(){
   my_number ++;
   players ++;
 
-  console.log('you are the number ' + my_number);
 
   var sendData = {
     my_number:my_number,
