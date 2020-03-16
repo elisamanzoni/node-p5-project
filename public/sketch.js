@@ -5,7 +5,8 @@ function preload(){
 }
 
 var socket;
-var number = 0;
+var my_number = 0;
+var players = 0;
 
 function setup() {
   createCanvas(500,500);
@@ -38,12 +39,19 @@ function setup() {
       }
 
       //ogni volta che ricevi informazioni da mouseBroadcast fai qualcosa
-        socket.on('numberBroadcast', new_number);
+        socket.on('aumentaIlGiocarore', aumentaIlGiocarore);
       //descrivo la funzione, cosa deve fare
-        function new_number(receiveData){
-          number ++;
-          console.log('giocatori online: ' + number);
+        function aumentaIlGiocarore(receiveData){
+          players ++;
+          console.log('giocatori online: ' + players);
         }
+
+        //ogni volta che ricevi informazioni da mouseBroadcast fai qualcosa
+          socket.on('numeroGiocatori', numeroGiocatori);
+        //descrivo la funzione, cosa deve fare
+          function numeroGiocatori(receiveData){
+            my_number ++;
+          }
 
 
 
@@ -96,11 +104,14 @@ function play(){
 }
 
 function numberPiuUno(){
-  number ++;
-  console.log('you are the number ' + number);
+  my_number ++;
+  players ++;
+
+  console.log('you are the number ' + my_number);
 
   var sendData = {
-    number:number
+    my_number:my_number,
+    players:players
   }
 
   //inviare informazioni
