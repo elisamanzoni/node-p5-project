@@ -6,7 +6,7 @@ var express = require('express');
 var app = express();
 
 //il numero è quello di localhost:xxxx
-var port = process.env.PORT || 3000;
+var port = 3000;
 //che cartella voglio usare
 app.use(express.static('public'));
 
