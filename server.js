@@ -28,22 +28,9 @@ var io = socket(server);
 //la nuova connessione è il cliente, ciè gli altri sketch
 io.on('connection', newConnection);
 
-var connessi = 0;
-
 
 function newConnection(socket){
   console.log(socket.id);
-  var socketid = socket.id;
-
-  connessi ++;
-  console.log(connessi);
-  //creare var con informazioni da inviare al server
-  var sendData = {
-    players:connessi,
-    socketid: socketid
-  }
-  //inviare informazioni
-  socket.broadcast.emit('connessiBroadcast', sendData);
 
 
   //riceve informazioni da sketch che si chiama 'mouse'

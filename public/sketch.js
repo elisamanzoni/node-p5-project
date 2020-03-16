@@ -39,13 +39,7 @@ function setup() {
 
 function draw() {
 
-  //ogni volta che ricevi informazioni da mouseBroadcast fai qualcosa
-    socket.on('connessiBroadcast', players);
-  //descrivo la funzione, cosa deve fare
-    function players(receiveData){
-      console.log(receiveData.players);
-      console.log('id:' +receiveData.socketid);
-    }
+
 
   // put drawing code here
 }
