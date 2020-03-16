@@ -5,32 +5,12 @@ function preload(){
 var socket;
 
 function setup() {
+    background('aquamarine');
   createCanvas(windowWidth,windowHeight);
 
 
 //load the socket.io library
   socket = io();
-
-
-
-
-  // put setup code here
-}
-
-function draw() {
-  background('aquamarine');
-
-  fill('white');
-  ellipse(mouseX,mouseY, 10);
-
-  //creare var con informazioni da inviare al server
-  var sendData = {
-    x:mouseX,
-    y:mouseY
-  }
-
-  //inviare informazioni
-  socket.emit('mouse', sendData);
 
   //ogni volta che ricevi informazioni da mouseBroadcast fai qualcosa
     socket.on('mouseBroadcast', newDrawing);
@@ -40,9 +20,33 @@ function draw() {
       ellipse(receiveData.x, receiveData.y, 5);
     }
 
+
+
+
+  // put setup code here
+}
+
+function draw() {
+
+
+
   // put drawing code here
 }
 
 function mouseDragged(){
+
+    fill('white');
+    ellipse(mouseX,mouseY, 10);
+
+    //creare var con informazioni da inviare al server
+    var sendData = {
+      x:mouseX,
+      y:mouseY
+    }
+
+    //inviare informazioni
+    socket.emit('mouse', sendData);
+
+
 
 }
