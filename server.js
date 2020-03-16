@@ -36,7 +36,13 @@ function newConnection(socket){
 
   connessi ++;
   console.log(connessi);
-  socket.broadcast.emit('connessiBroadcast', connessi);
+  //creare var con informazioni da inviare al server
+  var sendData = {
+    players:connessi
+  }
+  //inviare informazioni
+  socket.broadcast.emit('connessiBroadcast', sendData);
+
 
   //riceve informazioni da sketch che si chiama 'mouse'
   socket.on('mouse', mouseMessage);
