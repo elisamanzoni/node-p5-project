@@ -28,7 +28,7 @@ function setup() {
     //descrivo la funzione, cosa deve fare
       function newDrawing2(receiveData){
         fill('yellow');
-        rect(receiveData2.x, receiveData2.y, 30, 30);
+        rect(receiveData.x, receiveData.y, 30, 30);
       }
 
 
