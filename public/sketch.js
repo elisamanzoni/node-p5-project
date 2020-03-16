@@ -43,7 +43,7 @@ function setup() {
       //descrivo la funzione, cosa deve fare
         function aumentaIlGiocarore(receiveData){
           players ++;
-          console.log('giocatori online: ' + players);
+          console.log('giocatori online (mittente): ' + players);
         }
 
         //ogni volta che ricevi informazioni da mouseBroadcast fai qualcosa
@@ -52,6 +52,8 @@ function setup() {
           function numeroGiocatori(receiveData){
             my_number ++;
             console.log('dovrebbe arrivare a tutti tranne il mittente');
+            players ++;
+            console.log('giocatori online (tutti): ' + players);
           }
 
 
