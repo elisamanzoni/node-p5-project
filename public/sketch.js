@@ -23,6 +23,14 @@ function setup() {
       ellipse(receiveData.x, receiveData.y, 5);
     }
 
+    //ogni volta che ricevi informazioni da mouseBroadcast fai qualcosa
+      socket.on('rectBroadcast', newDrawing2);
+    //descrivo la funzione, cosa deve fare
+      function newDrawing2(receiveData){
+        fill('yellow');
+        rect(receiveData2.x, receiveData2.y, 30, 30);
+      }
+
 
 
 
@@ -57,7 +65,18 @@ function mouseDragged(){
 function play(){
   console.log('play');
 
+  var x_rect = random(0,windowWidth);
+  var y_rect = random(0,windowHeight)
+
   fill('red');
-  rect(random(0,windowWidth), random(0,windowHeight), 30, 30);
+  rect(x_rect, y_rect, 30, 30);
+
+  var sendData = {
+    x:x_rect,
+    y:y_rect
+  }
+
+  //inviare informazioni
+  socket.emit('rect', sendData);
 
 }

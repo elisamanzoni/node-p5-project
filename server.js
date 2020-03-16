@@ -40,4 +40,13 @@ function newConnection(socket){
   //inviare dal server le informazioni a tutti gli altri clients ma non ha chi l'ha creato
     socket.broadcast.emit('mouseBroadcast', receiveData);
   }
+
+  socket.on('rect', rectMessage);
+  //creare funzione mouseMessage
+  function rectMessage(receiveData){
+    console.log(receiveData);
+
+  //inviare dal server le informazioni a tutti gli altri clients ma non ha chi l'ha creato
+    socket.broadcast.emit('rectBroadcast', receiveData);
+  }
 }
