@@ -33,12 +33,14 @@ var connessi = 0;
 
 function newConnection(socket){
   console.log(socket.id);
+  var socketid = socket.id;
 
   connessi ++;
   console.log(connessi);
   //creare var con informazioni da inviare al server
   var sendData = {
-    players:connessi
+    players:connessi,
+    socketid: socketid
   }
   //inviare informazioni
   socket.broadcast.emit('connessiBroadcast', sendData);

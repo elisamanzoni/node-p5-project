@@ -44,6 +44,7 @@ function draw() {
   //descrivo la funzione, cosa deve fare
     function players(receiveData){
       console.log(receiveData.players);
+      console.log('id:' +receiveData.socketid);
     }
 
   // put drawing code here
@@ -73,7 +74,7 @@ function play(){
   var x_rect = random(0,windowWidth);
   var y_rect = random(0,windowHeight)
 
-  fill('red');
+  fill('blue');
   rect(x_rect, y_rect, 30, 30);
 
   var sendData = {
