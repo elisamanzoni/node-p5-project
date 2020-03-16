@@ -82,7 +82,7 @@ function play(){
   var x_rect = random(0,width);
   var y_rect = random(0,height);
 
-  fill('blue');
+  fill('orange');
   rect(x_rect, y_rect, 30, 30);
 
   var sendData = {
