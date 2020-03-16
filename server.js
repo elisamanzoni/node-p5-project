@@ -28,10 +28,14 @@ var io = socket(server);
 //la nuova connessione è il cliente, ciè gli altri sketch
 io.on('connection', newConnection);
 
+var connessi = 0;
+
 
 function newConnection(socket){
   console.log(socket.id);
 
+  connessi ++;
+  console.log(connessi);
 
   //riceve informazioni da sketch che si chiama 'mouse'
   socket.on('mouse', mouseMessage);
