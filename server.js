@@ -36,6 +36,7 @@ function newConnection(socket){
 
   connessi ++;
   console.log(connessi);
+  socket.broadcast.emit('connessiBroadcast', connessi);
 
   //riceve informazioni da sketch che si chiama 'mouse'
   socket.on('mouse', mouseMessage);
