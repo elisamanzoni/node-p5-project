@@ -42,15 +42,15 @@ function setup() {
         socket.on('aumentaIlGiocarore', aumentaIlGiocarore);
       //descrivo la funzione, cosa deve fare
         function aumentaIlGiocarore(receiveData){
-          players ++;
-          console.log('giocatori online: ' + players);
+          my_number ++;
+          console.log('dovrebbe arrivare a tutti tranne il mittente');
         }
 
         //ogni volta che ricevi informazioni da mouseBroadcast fai qualcosa
           socket.on('numeroGiocatori', numeroGiocatori);
         //descrivo la funzione, cosa deve fare
           function numeroGiocatori(receiveData){
-            my_number ++;
+            players ++;
             console.log('giocatori online: ' + players);
           }
 
@@ -91,7 +91,7 @@ function play(){
   var x_rect = random(0,width);
   var y_rect = random(0,height);
 
-  fill('blue');
+  fill('orange');
   rect(x_rect, y_rect, 30, 30);
 
   var sendData = {
