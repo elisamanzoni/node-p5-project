@@ -14,7 +14,10 @@ function setup() {
 //ogni volta che ricevi informazioni da mouseBroadcast fai qualcosa
   socket.on('mouseBroadcast', newDrawing);
 //descrivo la funzione, cosa deve fare
-
+  function newDrawing(receiveData){
+    fill('yellow');
+    ellipse(receiveData.x, receiveData.y, 5);
+  }
 
 
   // put setup code here
@@ -30,11 +33,6 @@ function draw() {
   var sendData = {
     x:mouseX,
     y:mouseY
-  }
-
-  function newDrawing(receiveData){
-    fill('yellow');
-    ellipse(receiveData.x, receiveData.y, 5);
   }
 
   //inviare informazioni
