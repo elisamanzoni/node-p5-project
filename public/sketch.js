@@ -85,7 +85,7 @@ function play(){
   var x_rect = random(0,width);
   var y_rect = random(0,height);
 
-  fill('yellow');
+  fill('orange');
   rect(x_rect, y_rect, 30, 30);
 
   var sendData = {
@@ -101,7 +101,7 @@ function play(){
 function numberPiuUno(){
   my_number = players + 1;
 
-  console.log('giocatori online: ' + (players+1);
+  console.log('giocatori online: ' + (players+1));
   console.log('you are the number ' + my_number);
 
 
