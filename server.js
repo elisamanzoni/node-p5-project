@@ -57,8 +57,7 @@ function newConnection(socket){
     console.log(receiveData);
 
   //inviare dal server le informazioni a tutti gli altri clients ma non ha chi l'ha creato
-    socket.broadcast.emit('numeroGiocatori', receiveData);
-    socket.emit('aumentaIlGiocarore', receiveData);
+    socket.broadcast.emit('playerBroadcast', receiveData);
   }
 
 }

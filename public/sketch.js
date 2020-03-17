@@ -38,23 +38,13 @@ function setup() {
         rect(receiveData.x, receiveData.y, 30, 30);
       }
 
-      //ogni volta che ricevi informazioni da mouseBroadcast fai qualcosa
-        socket.on('aumentaIlGiocarore', aumentaIlGiocarore);
-      //descrivo la funzione, cosa deve fare
-        function aumentaIlGiocarore(receiveData){
-          console.log('giocatori online (mittente): ' + players);
-          console.log('you are the number ' + my_number);
-        }
 
         //ogni volta che ricevi informazioni da mouseBroadcast fai qualcosa
-          socket.on('numeroGiocatori', numeroGiocatori);
+          socket.on('playerBroadcast', numeroGiocatori);
         //descrivo la funzione, cosa deve fare
           function numeroGiocatori(receiveData){
-            my_number ++;
-            console.log('dovrebbe arrivare a tutti tranne il mittente');
             players ++;
-            console.log('giocatori online (tutti): ' + players);
-
+            console.log('giocatori online: ' + players);
             console.log('you are the number ' + my_number);
           }
 
@@ -109,8 +99,10 @@ function play(){
 }
 
 function numberPiuUno(){
-  my_number ++;
-  players ++;
+  my_number = players + 1;
+
+  console.log('giocatori online: ' + (players+1);
+  console.log('you are the number ' + my_number);
 
 
   var sendData = {
